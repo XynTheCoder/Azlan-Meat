@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZLAN MEAT HALAL | Butchery</title>
+    <link rel="icon" href="FINAL.png">
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+    
+    
+    /* FORCE ALL BUTTONS BLACK */
+button {
+    background: #000 !important;
+    color: #fff !important;
+    border: none !important;
+}
+    
+    
+        :root { --gold: #e4e6da; --bg: #0a0a0a; --card: #1a1a1a; --glow: rgba(212, 175, 55, 0.3); }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: white;
+        background-color: rgb(199, 183, 175);
+        overflow-x: hidden; }
+
+        header { display: flex; justify-content: center;  background: rgba(0,0,0,0.95); position: fixed; top: 0; width: 100%; z-index: 2000; border-bottom: 1px solid #333;
+          background-color: rgb(199, 183, 175);
+          height: 55px;
+padding: 10px;
+          
+        }
+        
+        
+      .logo {
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+  
+}
+
+        .hero { 
+    position: relative; 
+    height: 60vh; 
+    width: 100%; 
+    overflow: hidden; 
+    margin-top: 55px;
+    border-radius: 20px; /* ✅ added */
+}
+        .slide { position: absolute; inset: 0; opacity: 0;
+        border-radius: 10px;
+        transition: 1.5s ease-in-out; background-size: cover; background-position: center; }
+        .slide.active { 
+          border-radius: inherit; 
+    display: block;
+          opacity: 1; 
+          border-radius: 10px;
+        }
+        .hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; z-index: 5; }
+        .hero-overlay h1 { font-family: 'Cinzel'; color: var(--gold); font-size: clamp(2.5rem, 8vw, 4rem); margin: 0; }
+
+        .container { padding: 20px; max-width: 1200px; margin: 0 auto; }
+        .view { display: none; padding-top: 90px; min-height: 100vh; }
+        .view.active { display: block; }
+        #home { padding-top: 0; }
+
+
+
+        .search-bar { width: 100%; padding: 18px 25px; border-radius: 40px; border: 1px solid #333; background: white; color: black; font-size: 16px; outline: none; margin-top: -35px; position: relative; z-index: 10; box-shadow: 0 10px 30px rgba(0,0,0,1); }
+        
+        
+        .fancy-back { display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; background: rgba(212,175,55,0.05); border: 1px solid var(--gold); border-radius: 30px; color: var(--gold); cursor: pointer; margin-bottom: 25px; font-weight: 600; text-transform: uppercase; }
+
+       .grid { 
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); /* ✅ FORCE 2 PER ROW */
+    gap: 15px; 
+}
+        .cat-card { height: 180px; border-radius: 20px; overflow: hidden; margin-bottom: 20px; cursor: pointer; position: relative; border: 1px solid #222; }
+        .cat-card img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.4); }
+        .cat-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Cinzel'; font-size: 26px; }
+
+        .product-card { background: var(--card); border-radius: 20px; overflow: hidden; cursor: pointer; border: 1px solid #333; }
+        .product-card img { width: 100%; height: 140px; object-fit: cover; }
+        .product-info { padding: 15px; text-align: center; }
+
+        .modal {
+    backdrop-filter: blur(10px);
+          position: fixed; bottom: -100%; left: 0; width: 100%; height: 90%; background: #0a0a0a; z-index: 3000; transition: 0.5s ease-out; border-radius: 30px 30px 0 0; padding: 30px; border-top: 1px solid var(--gold); }
+        .modal.open { bottom: 0; }
+        .weight-box { font-size: 45px; font-weight: 800; color: var(--gold); cursor: pointer; border-bottom: 3px dashed var(--gold); padding: 5px 20px; min-width: 140px; text-align: center; display: inline-block; }
+
+        /* ✅ FLOATING CART BUTTON */
+        .cart-float { position: fixed; bottom: 30px; right: 20px; width: 65px; height: 65px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); cursor: pointer; z-index: 2500; }
+        .badge { position: absolute; top: -5px; right: -5px; background: #ff4444; color: white; border-radius: 50%; padding: 4px 8px; font-size: 12px; font-weight: bold; }
+
+        .glass-box { background: #111; padding: 25px; border-radius: 20px; border: 1px solid #222; margin-bottom: 20px; }
+        footer { background: #000; padding: 60px 20px; text-align: center; border-top: 1px solid #222;
+        background-color: rgb(199, 183, 175);
+        
+          
+        }
+        .footer-links { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 500px; margin: 0 auto 30px; }
+        .footer-links div { color: #888; font-size: 15px; cursor: pointer; text-transform: uppercase; font-weight: 600; }
+    
+    
+   #userName, #userAddress {
+    border-radius: 25px;
+    width: 100%;
+    height: 45px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+    
+    button:active {
+    transform: scale(0.97);
+}
+
+
+button {
+    transition: 0.2s ease;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+    
+    
+    
+    .copyright {
+      color: grey;
+      
+    }
+    </style>
+</head>
+<body>
+  
+  <div id="history" class="view">
+<div class="container">
+    <div class="fancy-back" onclick="go('home')">Home</div>
+    <h2>Order History</h2>
+    <div id="historyList"></div>
+</div>
+</div>
+
+<header>
+  
+ 
+
+
+    <img src="FINAL.png" class="logo" onclick="go('home')">
+</header>
+
+<div id="home" class="view active">
+    <div class="hero">
+        <div class="slide active" style="background-image: url('DAYVIEW.jpg');"></div>
+        <div class="slide" style="background-image: url('NIGHTVIEW.jpg');"></div>
+        <div class="hero-overlay"><h1></h1><p></p></div>
+    </div>
+    <div class="container">
+      
+        <h2 class="section-title"></h2>
+       <!-- WHITE MEAT -->
+<div class="cat-card" onclick="filterCat('poultry')">
+    <img src="CHICKEN.jpg">
+    <div class="cat-overlay"></div>
+</div>
+
+<!-- RED MEAT -->
+<div class="cat-card" onclick="filterCat('beef')">
+    <img src="REDMEAT.jpg">
+    <div class="cat-overlay"></div>
+</div>
+
+<!-- SEAFOOD -->
+<div class="cat-card" onclick="filterCat('seafood')">
+    <img src="TEXTREMOVE.jpg">
+    <div class="cat-overlay"></div>
+</div>
+          
+            
+            
+        </div>
+    </div>
+</div>
+
+<div id="listView" class="view"><div class="container">
+    <div class="fancy-back" onclick="go('home')">Home</div>
+    <h2 id="listTitle" class="section-title">Selection</h2>
+    <div id="productList" class="grid"></div>
+</div></div>
+
+<div id="about" class="view"><div class="container">
+    <div class="fancy-back" onclick="go('home')">Home</div>
+    <h2 class="section-title">Our Story</h2>
+    <div class="glass-box"><p>Azlan Meat Halal Butchery provides the highest grade, ethically sourced meats to Nairobi.</p></div>
+</div></div>
+
+<div id="locations" class="view"><div class="container">
+    <div class="fancy-back" onclick="go('home')">Home</div>
+    <h2 class="section-title">Our Branches</h2>
+    <div class="glass-box"><h3>📍 Westlands Mwanzi Market</h3><p>Open: 8:00 AM - 8:00 PM</p></div>
+</div></div>
+
+<div id="contact" class="view"><div class="container">
+    <div class="fancy-back" onclick="go('home')">Home</div>
+    <h2 class="section-title">Get in Touch</h2>
+    <div class="glass-box"><p>📞 +254 700 000 000</p><p>✉️ orders@azlanmeat.co.ke</p></div>
+</div></div>
+
+<div id="cart" class="view"><div class="container">
+    <div class="fancy-back" onclick="go('home')">Home</div>
+    <h2 class="section-title">My Cart</h2>
+    <div id="cartItems"></div>
+    <div id="cartFormArea" style="display:none;">
+      
+      
+      
+      <div style="margin-bottom:15px;">
+    <button onclick="toggleDeliveryOptions()" style="
+padding:12px 25px;
+border-radius:30px;
+border:none;
+background:#000;
+color:#fff;
+font-weight:600;
+letter-spacing:1px;
+box-shadow:0 4px 12px rgba(0,0,0,0.3);
+cursor:pointer;
+">
+Choose Option
+</button>
+
+    <div id="deliveryOptions" style="display:none; margin-top:15px; display:flex; gap:10px;">
+    
+    <button onclick="setPickup()" style="
+    flex:1;
+    padding:12px;
+    border-radius:25px;
+    border:1px solid #000;
+    background:#111;
+    color:#fff;
+    font-weight:600;
+    transition:0.3s;
+    ">
+    Pickup
+    </button>
+
+    <button onclick="setDelivery()" style="
+    flex:1;
+    padding:12px;
+    border-radius:25px;
+    border:1px solid #000;
+    background:#111;
+    color:#fff;
+    font-weight:600;
+    transition:0.3s;
+    ">
+    Delivery
+    </button>
+
+</div>
+</div>
+      
+        <input id="userName" placeholder="Your Name or Contact Details">
+        <br>
+        <br>
+        <input id="userAddress" placeholder="Delivery Address or Pickup?">
+        <h3>Total: KES <span id="cartTotalText">0</span></h3>
+       <button onclick="sendOrder()" style="
+background:#000;
+color:#fff;
+width:100%;
+border:none;
+padding:18px;
+border-radius:40px;
+font-weight:800;
+letter-spacing:1px;
+box-shadow:0 5px 15px rgba(0,0,0,0.4);
+">
+CONFIRM ORDER
+</button>
+    </div>
+</div></div>
+
+<!-- ✅ FLOATING CART BUTTON (PERSISTENT) -->
+<div class="cart-float" onclick="go('cart')">🛒<div class="badge" id="cartBadge">0</div></div>
+
+<div class="modal" id="productModal">
+    <div onclick="closeModal()" style="font-size: 40px; float: right; cursor: pointer;">×</div>
+    <div id="modalContent"></div>
+</div>
+
+<footer>
+    <!-- ONLY SHOWING IMPORTANT CHANGES, YOUR STRUCTURE IS KEPT -->
+
+<!-- ✅ 1. ADD ORDER HISTORY BUTTON IN FOOTER -->
+<div class="footer-links">
+    <div onclick="go('home')">Home</div>
+    <div onclick="go('about')">About Us</div>
+    <div onclick="go('locations')">Locations</div>
+    <div onclick="go('contact')">Contact Us</div>
+    <div onclick="go('history')">Order History</div> <!-- ✅ ADDED -->
+</div>
+    <p class="copyright">&copy; 2026 Azlan Meat Butchery Ltd. <br> Developed by XYNXUS</p>
+</footer>
+
+<script>
+  
+  let deliveryType = "Not selected";
+
+  
+  const WHATSAPP_NUMBER = "254 722815045"; // change to your real Number
+  
+    const products = [
+    { id: 1, name: "Ribeye Steak", price: 1400, cat: "beef", img: "https://images.unsplash.com/photo-1604908176997-4311a3a5d8b6" },
+    { id: 2, name: "Beef Mince", price: 900, cat: "beef", img: "https://images.unsplash.com/photo-1603048297172-c92544798d5a" },
+    { id: 3, name: "Full Chicken", price: 850, cat: "poultry", img: "https://images.unsplash.com/photo-1604908554164-8f1a1c8b4d5d" },
+    { id: 4, name: "Chicken Thigh", price: 650, cat: "poultry", img: "" },
+    
+    { id: 5, name: "Fresh Tilapia", price: 600, cat: "seafood", img: "https://images.unsplash.com/photo-1617191519105-d07b98b10de4" },
+    { id: 6, name: "King Prawns", price: 1800, cat: "seafood", img: "https://images.unsplash.com/photo-1625944525903-b2a4d4a0c4a4" },
+    { id: 7, name: "Whole Fish (Snapper)", price: 1200, cat: "seafood", img: "https://images.unsplash.com/photo-1544943910-4c1dc44aab44" }
+];
+
+    let cart = {}; 
+    let currentWeight = 1.0; 
+    let selectedProd = null;
+
+    window.addEventListener('popstate', (e) => {
+        const view = (e.state && e.state.view) ? e.state.view : 'home';
+        renderView(view, false);
+    });
+
+    function go(view){
+      
+      
+    document.querySelectorAll('.view').forEach(x => x.classList.remove('active'));
+    document.getElementById(view).classList.add('active');
+
+    // ✅ push state for back button support
+    history.pushState({page: view}, "", "#" + view);
+
+    window.scrollTo(0,0);
+
+    if(view === "history") renderHistory();
+    if(view === "cart") renderCart();
+}
+
+    function renderView(viewId, scroll) {
+        document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+        document.getElementById(viewId).classList.add('active');
+        if(scroll) window.scrollTo(0,0);
+        if(viewId === 'cart') renderCart();
+        html += `
+<div style="
+padding:15px;
+background:#111;
+margin-bottom:12px;
+border-radius:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 3px 10px rgba(0,0,0,0.3);
+">
+    <span>${p.name} (${cart[id]}kg)</span>
+    <span>
+        KES ${p.price * cart[id]} 
+        <span onclick="del(${id})" style="color:red; margin-left:15px; font-weight:bold; cursor:pointer;">×</span>
+    </span>
+</div>`;
+    }
+    
+    
+    
+    
+    function toggleDeliveryOptions(){
+    const box = document.getElementById("deliveryOptions");
+    box.style.display = box.style.display === "block" ? "none" : "block";
+}
+
+function setPickup(){
+    deliveryType = "Pickup";
+    document.getElementById("userAddress").placeholder = "Pickup Location";
+}
+
+function setDelivery(){
+    deliveryType = "Delivery";
+    document.getElementById("userAddress").placeholder = "Delivery Address (charges apply)";
+}
+    
+    
+
+    let slideIdx = 0;
+    setInterval(() => {
+        const slides = document.querySelectorAll('.slide');
+        slides[slideIdx].classList.remove('active');
+        slideIdx = (slideIdx + 1) % slides.length;
+        slides[slideIdx].classList.add('active');
+    }, 5000);
+
+    /* ✅ SEARCH BAR FIX (USE 'input' event to keep keyboard active) */
+    
+  
+    function searchProducts(e) {
+    const term = e.target.value.toLowerCase();
+    const list = document.getElementById('productList');
+
+    if(!term){
+        return; // ✅ prevents glitch
+    }
+
+    document.getElementById('listTitle').innerText = "Search Results";
+
+    let filtered = products.filter(p => 
+        p.name.toLowerCase().includes(term)
+    );
+
+    list.innerHTML = filtered.map(p => genProdHtml(p)).join('');
+
+    if(!document.getElementById('listView').classList.contains('active')) {
+        go('listView');
+    }
+}
+
+    function filterCat(cat) {
+    const list = document.getElementById('productList');
+
+    let filtered = products.filter(p => p.cat === cat);
+
+    document.getElementById('listTitle').innerText =
+        cat === 'beef' ? "RED MEAT" :
+        cat === 'poultry' ? "WHITE MEAT" :
+        "SEA FOOD";
+
+    list.innerHTML = filtered.map(p => `
+        <div class="product-card" onclick="openProduct(${p.id})">
+            <img src="${p.img}">
+            <div class="product-info">
+                <h4>${p.name}</h4>
+                <p>KES ${p.price}/kg</p>
+            </div>
+        </div>
+    `).join('');
+
+    go('listView');
+}
+    function genProdHtml(p) {
+        return `<div class="product-card" onclick="openProduct(${p.id})">
+            <img src="${p.img}"><div class="product-info"><h4>${p.name}</h4><p>KES ${p.price}/kg</p></div></div>`;
+    }
+
+    function openProduct(id) {
+        selectedProd = products.find(p => p.id === id);
+        currentWeight = cart[id] || 1.0;
+        updateModal();
+        document.getElementById('productModal').classList.add('open');
+    }
+
+    function updateModal() {
+        document.getElementById('modalContent').innerHTML = `
+            <img src="${selectedProd.img}" style="width:100%; height:220px; object-fit:cover; border-radius:20px;">
+            <h2 class="section-title">${selectedProd.name}</h2>
+            <div style="text-align:center; margin:30px 0;">
+                <div style="display:flex; align-items:center; justify-content:center; gap:20px;">
+                    <button onclick="adjW(-0.5)" style="font-size:30px; background:none; border:1px solid var(--gold); color:var(--gold); width:60px; height:60px; border-radius:50%;">-</button>
+                    <div class="weight-box" onclick="manualKg()">${currentWeight}kg</div>
+                    <button onclick="adjW(0.5)" style="font-size:30px; background:none; border:1px solid var(--gold); color:var(--gold); width:60px; height:60px; border-radius:50%;">+</button>
+                </div>
+            </div>
+            <button onclick="addToCart()" style="width:100%; padding:20px; background:#000;
+color:#fff; border:none; border-radius:40px; font-weight:800;">ADD TO CART</button>
+        `;
+    }
+    
+    
+    function renderHistory() {
+    const data = getOrderHistory();
+    const box = document.getElementById("historyList");
+
+    if (data.length === 0) {
+        box.innerHTML = "<p>No orders yet.</p>";
+        return;
+    }
+
+    box.innerHTML = data.reverse().map(o => `
+        <div style="padding:15px; margin-bottom:10px; background:#1a1a1a; border-radius:15px;">
+            <h4>${o.date}</h4>
+            <p><b>Name:</b> ${o.name}</p>
+            <p><b>Address:</b> ${o.address}</p>
+            <p><b>Total:</b> KES ${o.total}</p>
+        </div>
+    `).join('');
+}
+
+    function adjW(v) { currentWeight = Math.min(20, Math.max(0.5, currentWeight + v)); updateModal(); }
+    function manualKg() {
+        let val = prompt("Enter Kgs (0.5 - 20):", currentWeight);
+        if(val && !isNaN(val)) { currentWeight = Math.min(20, Math.max(0.5, parseFloat(val))); updateModal(); }
+    }
+
+    function addToCart() { 
+        cart[selectedProd.id] = currentWeight; 
+        document.getElementById('cartBadge').innerText = Object.keys(cart).length;
+        closeModal(); 
+    }
+    function closeModal() { document.getElementById('productModal').classList.remove('open'); }
+
+    function renderCart() {
+        const area = document.getElementById('cartItems');
+        let html = '', total = 0;
+        for(let id in cart) {
+            let p = products.find(x => x.id == id);
+            total += (p.price * cart[id]);
+            html += `<div style="padding:15px; background:#1a1a1a; margin-bottom:12px; border-radius:15px; display:flex; justify-content:space-between;">
+                <span>${p.name} (${cart[id]}kg)</span><span>KES ${p.price * cart[id]} <span onclick="del(${id})" style="color:red; margin-left:15px;">×</span></span></div>`;
+        }
+        area.innerHTML = html || '<p style="text-align:center;">Empty Cart</p>';
+        document.getElementById('cartFormArea').style.display = total > 0 ? 'block' : 'none';
+        document.getElementById('cartTotalText').innerText = total.toLocaleString();
+    }
+    
+    window.addEventListener("popstate", function(event) {
+    let view = (event.state && event.state.page) ? event.state.page : "home";
+
+    document.querySelectorAll('.view').forEach(x => x.classList.remove('active'));
+    document.getElementById(view).classList.add('active');
+
+    window.scrollTo(0,0);
+
+    if(view === "history") renderHistory();
+    if(view === "cart") renderCart();
+});
+
+    function del(id) { delete cart[id]; document.getElementById('cartBadge').innerText = Object.keys(cart).length; renderCart(); }
+    
+    
+    
+    
+    function sendOrder() {
+    const name = document.getElementById('userName').value;
+    const address = document.getElementById('userAddress').value;
+
+    if (!name || !address) {
+        alert("Please enter your name and address");
+        return;
+    }
+
+function saveOrderHistory(name, address, text, total) {
+    let history = JSON.parse(localStorage.getItem("orderHistory")) || [];
+
+    history.push({
+        date: new Date().toLocaleString(),
+        name,
+        address,
+        total,
+        order: text
+    });
+
+    localStorage.setItem("orderHistory", JSON.stringify(history));
+}
+
+function getOrderHistory() {
+    return JSON.parse(localStorage.getItem("orderHistory")) || [];
+}
+
+    let orderText = `🛒 NEW ORDER FROM AZLAN MEAT\n\n`;
+    orderText += `Name: ${name}\n`;
+    orderText += `Order Type: ${deliveryType}\n`;
+orderText += `Address: ${address}\n\n`;
+
+    let total = 0;
+
+    for (let id in cart) {
+        let p = products.find(x => x.id == id);
+        let qty = cart[id];
+        let cost = p.price * qty;
+
+        total += cost;
+
+        orderText += `- ${p.name}\n`;
+        orderText += `  Qty: ${qty}kg\n`;
+        orderText += `  Price: KES ${cost}\n\n`;
+    }
+
+    orderText += `TOTAL: KES ${total}`;
+
+    // ✅ Save to history
+    saveOrderHistory(name, address, orderText, total);
+
+    // WhatsApp link
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(orderText)}`;
+
+    window.open(url, "_blank");
+
+    alert("Redirecting to WhatsApp...");
+
+    cart = {};
+    document.getElementById('cartBadge').innerText = "0";
+    renderCart();
+}
+
+history.replaceState({page: "home"}, "", "#home");
+</script>
+</body>
+</html>
